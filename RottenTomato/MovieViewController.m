@@ -64,8 +64,7 @@
     self.definesPresentationContext = YES;
     self.searchController.dimsBackgroundDuringPresentation = NO;
     self.searchController.searchBar.tintColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1.0];
-    self.searchController.searchBar.barTintColor = [UIColor colorWithRed:0.933 green:0.196 blue:0.141 alpha:1.0];
-    
+    self.searchController.searchBar.barTintColor = [UIColor colorWithRed:0.933333333 green:0.19607843 blue:0.1411765 alpha:1.0];
     
     // table style
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

@@ -17,12 +17,24 @@
     self.wrapperView.layer.borderWidth = 0.5;
     self.wrapperView.layer.borderColor = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:0.8].CGColor;
     self.wrapperView.layer.masksToBounds = YES;
+    
+    self.selectionStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+    if (selected || animated) {
+        self.wrapperView.layer.backgroundColor = [UIColor whiteColor].CGColor;
+    }
+}
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    [super setHighlighted:highlighted animated:animated];
+    
+    if (highlighted || animated) {
+        self.wrapperView.layer.backgroundColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:0.3].CGColor;
+    }
 }
 
 - (void)prepareForReuse {
