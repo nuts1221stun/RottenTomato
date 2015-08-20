@@ -8,9 +8,10 @@
 
 #import "ViewController.h"
 #import <UIImageView+AFNetworking.h>
-#define TEXT_OPEN_OFFSET 90.0
+#define TEXT_OPEN_OFFSET 30.0
 #define TEXT_CLOSE_MAX_HEIGHT 240.0
 #define TEXT_MARGIN 15.0
+#define NAVIGATION_BAR_HEIGHT 64
 
 @interface ViewController ()
 
@@ -23,7 +24,7 @@
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     self.screenWidth = screenRect.size.width;
-    self.screenHeight = screenRect.size.height;
+    self.screenHeight = screenRect.size.height - NAVIGATION_BAR_HEIGHT;
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     

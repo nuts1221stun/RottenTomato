@@ -65,6 +65,8 @@
     self.searchController.dimsBackgroundDuringPresentation = NO;
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+        //self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)getMovies {

@@ -13,16 +13,10 @@
 - (void)awakeFromNib {
     // rounded corner
     self.wrapperView.layer.masksToBounds = NO;
-    self.wrapperView.layer.cornerRadius = 10.0;
-    self.wrapperView.layer.borderWidth = 0.0;
-    
-    /*UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:self.bounds];
-    self.wrapperView.layer.masksToBounds = NO;
-    self.wrapperView.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.wrapperView.layer.shadowOffset = CGSizeMake(-0.0f, -0.0f);
-    self.wrapperView.layer.shadowOpacity = 1.0f;
-    self.wrapperView.layer.shadowRadius = 8;
-    self.wrapperView.layer.shadowPath = shadowPath.CGPath;*/
+    self.wrapperView.layer.cornerRadius = 8.0;
+    self.wrapperView.layer.borderWidth = 0.5;
+    self.wrapperView.layer.borderColor = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:0.8].CGColor;
+    self.wrapperView.layer.masksToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
