@@ -58,21 +58,25 @@
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.searchResultsUpdater = self;
     self.searchController.searchBar.delegate = self;
-    
+    // search bar style
     [self.searchController.searchBar sizeToFit];
     self.tableView.tableHeaderView = self.searchController.searchBar;
     self.definesPresentationContext = YES;
     self.searchController.dimsBackgroundDuringPresentation = NO;
+    self.searchController.searchBar.tintColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1.0];
+    self.searchController.searchBar.barTintColor = [UIColor colorWithRed:0.933 green:0.196 blue:0.141 alpha:1.0];
     
+    
+    // table style
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-        //self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
+    self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 10.0, 0.0);
+
 }
 
 - (void)getMovies {
     NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=dagqdghwaq3e3mxyrp7kmmj5&limit=20&country=us";
-    // url = @"http://api.rottenoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=dagqdghwaq3e3mxyrp7kmmj5&limit=20&country=us";
-    
+    //url = @"http://api.rottenoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=dagqdghwaq3e3mxyrp7kmmj5&limit=20&country=us";
+
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
