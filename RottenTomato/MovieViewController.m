@@ -42,12 +42,15 @@
     [self.tableView addSubview:self.refreshControl];
     [self.refreshControl addTarget:self action:@selector(getMovies) forControlEvents:UIControlEventValueChanged];
     
+    // loading hud
     self.hud = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
     self.hud.textLabel.text = @"Loading";
     [self.hud showInView:self.view];
     
+    // get movie data
     [self getMovies];
     
+    // init cache
     self.cache = [[NSCache alloc]init];
     
     // search bar
@@ -61,10 +64,10 @@
     self.definesPresentationContext = YES;
     self.searchController.dimsBackgroundDuringPresentation = NO;
     
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)getMovies {
-    NSLog(@"getting movies\n");
     NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=dagqdghwaq3e3mxyrp7kmmj5&limit=20&country=us";
     // url = @"http://api.rottenoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=dagqdghwaq3e3mxyrp7kmmj5&limit=20&country=us";
     
@@ -94,6 +97,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 174.; // you can have your own choice, of course
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

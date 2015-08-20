@@ -11,7 +11,18 @@
 @implementation MovieCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    // rounded corner
+    self.wrapperView.layer.masksToBounds = NO;
+    self.wrapperView.layer.cornerRadius = 10.0;
+    self.wrapperView.layer.borderWidth = 0.0;
+    
+    /*UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:self.bounds];
+    self.wrapperView.layer.masksToBounds = NO;
+    self.wrapperView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.wrapperView.layer.shadowOffset = CGSizeMake(-0.0f, -0.0f);
+    self.wrapperView.layer.shadowOpacity = 1.0f;
+    self.wrapperView.layer.shadowRadius = 8;
+    self.wrapperView.layer.shadowPath = shadowPath.CGPath;*/
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -24,5 +35,6 @@
     [super prepareForReuse];
     self.posterView.image = nil;
 }
+
 
 @end
